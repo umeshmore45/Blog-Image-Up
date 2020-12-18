@@ -1,0 +1,21 @@
+{
+  "name": "blog-image-upload",
+  "version": "1.0.0",
+  "description": "blog backend ",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node app.js",
+    "dev": "nodemon app.js"
+  },
+  "author": "Umesh More",
+  "license": "ISC",
+  "dependencies": {
+    "cors": "^2.8.5",
+    "dotenv": "^8.2.0",
+    "express": "^4.17.1",
+    "mongoose": "^5.11.8",
+    "multer": "^1.4.2",
+    "uniqid": "^5.2.0"
+  }
+}
