@@ -20,10 +20,10 @@ const blogSchema = new mongoose.Schema({
   },
   links: [
     {
-      relatedBlogId: {
+      id: {
         type: String,
       },
-      relatedBlogTitle: {
+      title: {
         type: String,
       },
     },

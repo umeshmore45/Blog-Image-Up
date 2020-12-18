@@ -40,17 +40,29 @@ const addBlogUpload = async (req, res, next) => {
       content: req.body.content,
       links: [
         {
-          relatedBlogId: req.body.linksBlogId,
+          id: req.body.linksBlogId,
         },
-        { relatedBlogTitle: req.body.linksBlogTitle },
+        { title: req.body.linksBlogTitle },
       ],
 
       imageUrl: `${path.join(__dirname, "..", "uploads")}/${req.file.filename}`,
     });
     newBlog
       .save()
-      .then((data) => {
-        console.log(data);
+      .then(async (data) => {
+        if (req.body.linksBlogId) {
+          const update = await Blog.findOneAndUpdate(
+            { id: req.body.linksBlogId },
+            {
+              links: [
+                {
+                  id: data.id,
+                  title: data.title,
+                },
+              ],
+            }
+          );
+        }
       })
       .catch((err) => {
         console.log(err);
