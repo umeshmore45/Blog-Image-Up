@@ -33,7 +33,6 @@ const uploadeImage = upload.single("uploaded_file");
 //Adding Blog
 const addBlogUpload = async (req, res, next) => {
   try {
-    console.log(req.body.relatedBlogId);
     const newBlog = new Blog({
       author: req.body.author,
       title: req.body.title,
